@@ -79,6 +79,29 @@ console.log(friends[friends.length - 1]);
 friends[2] = "Jay";
 console.log(friends);
 
+//Add element
+const newLenght = friends.push("Bob");
+console.log(friends);
+console.log(newLenght);
+friends.unshift("Jonas");
+console.log(friends);
+//Remove element
+friends.pop(); // last
+const popped = friends.pop(); // peter also gone
+console.log(friends);
+console.log(popped);
+friends.shift(); // first
+console.log(friends);
+console.log(friends.indexOf("Steven"));
+console.log(friends.indexOf("peter"));
+console.log(friends.includes("Micheal"));
+
+if (console.log(friends.indexOf("Micheal"))) {
+  console.log("you have a friend called peter");
+} else {
+  console.log("you have not a friend called peter");
+}
+
 const firstName = "Jonas";
 const jonas = [firstName, "Schmedtmann", 2037 - 1991, "teacher", friends];
 console.log(jonas);
@@ -89,3 +112,17 @@ const calcAge4 = function (birthYears) {
   return 2037 - birthYears;
 };
 const years = [1990, 1967, 2002, 2010, 2018];
+
+console.log(calcAge4(years));
+const age4 = calcAge4(years[0]);
+const age5 = calcAge4(years[1]);
+const age6 = calcAge4(years[2]);
+const age7 = calcAge4(years[years.length - 1]);
+console.log(age4, age5, age6, age7);
+
+const ages = [
+  calcAge4(years[0]),
+  calcAge4(years[1]),
+  calcAge4(years[years.length - 1]),
+];
+console.log(ages);
