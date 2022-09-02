@@ -126,3 +126,57 @@ const ages = [
   calcAge4(years[years.length - 1]),
 ];
 console.log(ages);
+
+//OBJECT
+const jonasArray = [
+  "jonas",
+  "schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Micheal", "peter", "steven"],
+];
+
+const jonaas = {
+  firstName: "jonas",
+  lastName: "schmedtmann",
+  birthYear: 1991,
+  hasDriversLicense: true,
+  job: "teacher",
+  friends: ["micheal", "peter", "steven"],
+  // calcAge: function (birthYear) {
+  //   return 2037 - birthYear;
+  // },
+  calcAge: function () {
+    console.log(this);
+    return 2037 - this.birthYear;
+  },
+};
+console.log(jonaas);
+console.log(jonaas.lastName);
+console.log(jonaas["lastName"]);
+jonaas.location = "portugal";
+jonaas["twitter"] = "@jonasschmedtman";
+console.log(jonaas.calcAge());
+// console.log(jonaas["calcAge"](1991));
+
+const namekey = "Name";
+console.log(jonaas["first" + namekey]); // we can put any expression here
+console.log(jonaas["last" + namekey]);
+
+const interestedIn = prompt(
+  "What do you want to know about Jonas? Choose between firstName,lastName,age,job,and friends"
+);
+// console.log(jonaas.interestedIn);
+console.log(jonaas[interestedIn]);
+
+if (jonaas[interestedIn]) {
+  console.log(jonaas[interestedIn]);
+} else {
+  console.log("wrong request!");
+}
+
+//Challenge
+//"jonas has 3 friends , and his best friend is called micheal"
+console.log(
+  `${jonaas.firstName} has ${jonaas.friends.length} friends his best friend is ${jonaas.friends[0]} `
+);
