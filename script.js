@@ -62,6 +62,24 @@ const yearsUntilRetirement = function (birthyear, firstName) {
 console.log(yearsUntilRetirement(1991, "Jonas"));
 console.log(yearsUntilRetirement(1950, "Bob"));
 
+//Challenge#1
+const calcAverage = (a, b, c) => (a + b + c) / 3;
+console.log(calcAge(5, 3, 4));
+const scoreDolhins = calcAverage(44, 23, 71);
+const scorekoalas = calcAverage(65, 54, 49);
+console.log(scoreDolhins, scorekoalas);
+
+const checkWiner = function (avgDolhins, avgKoalas) {
+  if (avgDolhins >= 2 * avgKoalas) {
+    console.log(`Dolhins win(${avgDolhins}vs${avgKoalas})`);
+  } else if (avgKoalas >= 2 * avgDolhins) {
+    console.log(`Koalas win ${avgKoalas} vs ${avgDolhins}`);
+  } else {
+    console.log(`No teams wins`);
+  }
+};
+checkWiner(scoreDolhins, scorekoalas);
+
 //Array
 const friend1 = "Michael";
 const friend2 = "steven";
@@ -151,6 +169,7 @@ const jonaas = {
     return 2037 - this.birthYear;
   },
 };
+
 console.log(jonaas);
 console.log(jonaas.lastName);
 console.log(jonaas["lastName"]);
