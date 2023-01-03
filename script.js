@@ -87,16 +87,24 @@ const friend3 = "peter";
 
 const friends = ["Michael", "steven", "peter"];
 console.log(friends);
+console.log(friends.length);
 
-const year = new Array(1991, 1984, 2008, 2020);
-console.log(year);
+const y = new Array(1991, 1984, 2008, 2020);
+console.log(y);
+
 console.log(friends[0]);
 console.log(friends[2]);
 console.log(friends.length);
 console.log(friends[friends.length - 1]);
 friends[2] = "Jay";
 console.log(friends);
+//friens=["Bob","Alice"] incorrect
 
+const sima = ["Sima", "Ghanadiyan", 2022 - 1997, "student", friends];
+console.log(sima);
+console.log(sima.length);
+
+// Basic array operator #10
 //Add element
 const newLenght = friends.push("Bob");
 console.log(friends);
@@ -104,20 +112,20 @@ console.log(newLenght);
 friends.unshift("Jonas");
 console.log(friends);
 //Remove element
-friends.pop(); // last
-const popped = friends.pop(); // peter also gone
+friends.pop(); // last element gone
+const popped = friends.pop(); // Jay also gone
 console.log(friends);
 console.log(popped);
-friends.shift(); // first
+friends.shift(); // first element gone
 console.log(friends);
-console.log(friends.indexOf("Steven"));
+console.log(friends.indexOf("Michael"));
 console.log(friends.indexOf("peter"));
-console.log(friends.includes("Micheal"));
+console.log(friends.includes("Michael"));
 
-if (console.log(friends.indexOf("Micheal"))) {
-  console.log("you have a friend called peter");
+if (friends.includes("Michael")) {
+  console.log("you have a friend called Michael");
 } else {
-  console.log("you have not a friend called peter");
+  console.log("you have not a friend called Michael");
 }
 
 const firstName = "Jonas";
@@ -145,57 +153,138 @@ const ages = [
 ];
 console.log(ages);
 
+// Challenge #2:
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+console.log(bills, tips);
+
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+console.log(total);
+
 //OBJECT
 const jonasArray = [
-  "jonas",
-  "schmedtmann",
+  "Jonas",
+  "Schmedtmann",
   2037 - 1991,
   "teacher",
-  ["Micheal", "peter", "steven"],
+  ["Micheal", "Peter"],
 ];
+
+/*const jonas = {
+  firstName:'jonas',
+  lastName:'schmedtmann',
+  age:2037-1991;
+  job:'teacher',
+  friends:["Micheal", "Peter"],
+  console.log(jonas),
+}*/
 
 const jonaas = {
   firstName: "jonas",
   lastName: "schmedtmann",
-  birthYear: 1991,
-  hasDriversLicense: true,
+  age: 1991,
   job: "teacher",
-  friends: ["micheal", "peter", "steven"],
-  // calcAge: function (birthYear) {
-  //   return 2037 - birthYear;
-  // },
+  friends: ["Micheal", "peter"],
+  hasDriverLicense: false,
+  /*calcAge: function (birthyear) {
+    return 2037 - birthyear;
+  }*/
+  /*calcAge: function () {
+    return 2037 - this.age;
+  },*/
   calcAge: function () {
-    console.log(this);
-    return 2037 - this.birthYear;
+    this.birthyear = 2037 - this.age;
+    return this.birthyear;
+  },
+
+  getSummery: function () {
+    return `${this.firstName} is a ${this.calcAge()} years old ${
+      jonaas.job
+    } and he has ${this.hasDriverLicense ? "a" : "no"} driver license`;
   },
 };
-
 console.log(jonaas);
 console.log(jonaas.lastName);
 console.log(jonaas["lastName"]);
-jonaas.location = "portugal";
-jonaas["twitter"] = "@jonasschmedtman";
-console.log(jonaas.calcAge());
+const nameKey = "Name";
+console.log(jonaas["first" + nameKey]);
+console.log(jonaas["last" + nameKey]);
+// console.log(jonaas.calcAge(1991));
 // console.log(jonaas["calcAge"](1991));
+console.log(jonaas.calcAge());
+console.log(jonaas.birthyear);
 
-const namekey = "Name";
-console.log(jonaas["first" + namekey]); // we can put any expression here
-console.log(jonaas["last" + namekey]);
-
-const interestedIn = prompt(
-  "What do you want to know about Jonas? Choose between firstName,lastName,age,job,and friends"
+const interstedIn = prompt(
+  "what do you want to know about jonas?choose between firstName,lastName,job,age and friends?"
 );
-// console.log(jonaas.interestedIn);
-console.log(jonaas[interestedIn]);
+/*console.log(jonaas.interstedIn);  undefined because there is not a property interstedIn*/
 
-if (jonaas[interestedIn]) {
-  console.log(jonaas[interestedIn]);
+if (jonaas[interstedIn]) {
+  console.log(jonaas[interstedIn]);
 } else {
-  console.log("wrong request!");
+  console.log(
+    "wrong requestchoose between firstName,lastName,job,age and friends?"
+  );
+}
+jonaas.location = "portugal";
+jonaas["twitter"] = "@jonasschmedtmann";
+console.log(jonaas);
+
+//Challenge: jonas has 2 friends and his best friend called Michael.
+console.log(
+  `${jonaas.firstName} has ${jonaas.friends.length} friends and his best friend called ${jonaas.friends[0]}`
+);
+//Challenge:jonas is a 46-year old teacher, and he has a driver license
+console.log(jonaas.getSummery());
+
+/*console.log("lifting weight repitition 1");
+console.log("lifting weight repitition 2");
+console.log("lifting weight repitition 3");
+console.log("lifting weight repitition 4");
+console.log("lifting weight repitition 5");
+console.log("lifting weight repitition 6");
+console.log("lifting weight repitition 7");
+console.log("lifting weight repitition 8");
+console.log("lifting weight repitition 9");
+console.log("lifting weight repitition 10");*/
+
+//for loops keeps running while condition is true
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`lifting weight repitition ${rep}`);
 }
 
-//Challenge
-//"jonas has 3 friends , and his best friend is called micheal"
-console.log(
-  `${jonaas.firstName} has ${jonaas.friends.length} friends his best friend is ${jonaas.friends[0]} `
-);
+const alice = [
+  "alice",
+  "schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Micheal", "Peter"],
+];
+console.log(alice);
+const types = [];
+//for (let i = 0; i < 5; i++) {
+//console.log(alice[i]);
+// }
+
+for (let i = 0; i < alice.length; i++) {
+  console.log(alice[i], typeof alice[i]);
+  // types[i] = typeof alice[i];
+  types.push(typeof alice[i]);
+}
+console.log(types);
+
+const year = [1991, 2007, 1969, 2020];
+const age = [];
+
+for (let i = 0; i < year.length; i++) {
+  age.push(2037 - years[i]);
+}
+console.log(age);
+
+//continue and break
+for (let i = 0; i < alice.length; i++) {
+  console.log(alice[i], typeof alice[i]);
+}
